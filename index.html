@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>YourBear</title>
+  <!-- Font "Nunito" da Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" 
+    rel="stylesheet"
+  >
+  <style>
+    /* Reset di base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf7f8; /* sfondo chiaro, tendente al rosa/beige */
+      font-family: 'Nunito', sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 5px;
+      color: #e91e63; /* un rosa acceso */
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    /* Galleria immagini */
+    .gallery {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    /* Pulsanti galleria */
+    .gallery-controls {
+      margin-top: 10px;
+    }
+    button {
+      background: #e91e63;
+      border: none;
+      color: #fff;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 5px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #c2185b; /* leggermente più scuro */
+    }
+
+    /* Audio */
+    .audio-section {
+      margin-bottom: 20px;
+    }
+    .audio-title {
+      font-weight: 700;
+      margin: 10px 0 5px;
+      color: #ad1457; 
+    }
+    audio {
+      outline: none;
+      width: 100%;
+    }
+
+    /* Testo finale */
+    .message {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Titolo e sottotitolo -->
+    <h1>YourBear</h1>
+    <h2>Da Paolo e Virginia</h2>
+
+    <!-- Galleria di foto -->
+    <div class="gallery">
+      <img id="galleryImage" src="" alt="Foto galleria" />
+      <div class="gallery-controls">
+        <button onclick="prevImage()">Precedente</button>
+        <button onclick="nextImage()">Successiva</button>
+      </div>
+    </div>
+
+    <!-- Sezione Audio -->
+    <div class="audio-section">
+      <div class="audio-container">
+        <div class="audio-title">Paolo</div>
+        <audio controls>
+          <source src="Paolo.m4a" type="audio/mp4" />
+          Il tuo browser non supporta l'elemento audio.
+        </audio>
+      </div>
+      <div class="audio-container" style="margin-top: 15px;">
+        <div class="audio-title">Virginia</div>
+        <audio controls>
+          <source src="Virginia.m4a" type="audio/mp4" />
+          Il tuo browser non supporta l'elemento audio.
+        </audio>
+      </div>
+    </div>
+
+    <!-- Testo finale -->
+    <div class="message">
+      ciao mamma. <strong>ti vogliamo bene</strong>, da Paolo e Virginia.
+    </div>
+  </div>
+
+  <script>
+    // Elenco di immagini statiche
+    const images = [
+      "IMG_7638.PNG",
+      "IMG_7637.PNG",
+      "IMG_7636.PNG",
+      "IMG_7635.PNG",
+      "IMG_7634.PNG",
+      "IMG_7633.jpg",
+      "IMG_7631.PNG",
+      "IMG_7630.PNG",
+      "IMG_7629.PNG"
+      // Aggiungi altre se necessario, 
+      // assicurati che i file esistano nella stessa cartella!
+    ];
+
+    let currentIndex = 0;
+    const galleryImage = document.getElementById('galleryImage');
+
+    // Mostra la prima immagine all'avvio
+    window.addEventListener('DOMContentLoaded', () => {
+      if (images.length > 0) {
+        galleryImage.src = images[currentIndex];
+      }
+    });
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      galleryImage.src = images[currentIndex];
+    }
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      galleryImage.src = images[currentIndex];
+    }
+  </script>
+</body>
+</html>
