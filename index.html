@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>YourBear</title>
+
   <!-- Font "Nunito" da Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,6 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" 
     rel="stylesheet"
   >
+
   <style>
     /* Reset di base */
     * {
@@ -18,7 +20,7 @@
       box-sizing: border-box;
     }
     body {
-      background: #faf7f8; /* sfondo chiaro, tendente al rosa/beige */
+      background: #faf7f8; /* sfondo chiaro */
       font-family: 'Nunito', sans-serif;
       color: #333;
       display: flex;
@@ -36,13 +38,14 @@
       padding: 30px;
       text-align: center;
     }
+
     h1 {
       font-size: 2rem;
       margin-bottom: 5px;
-      color: #e91e63; /* un rosa acceso */
+      color: #e91e63; 
     }
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #666;
       margin-bottom: 20px;
     }
@@ -74,7 +77,7 @@
       transition: background 0.3s;
     }
     button:hover {
-      background: #c2185b; /* leggermente più scuro */
+      background: #c2185b;
     }
 
     /* Audio */
@@ -89,16 +92,43 @@
     audio {
       outline: none;
       width: 100%;
+      margin-bottom: 10px;
     }
 
-    /* Testo finale */
-    .message {
-      font-size: 1rem;
+    /* Testo finale con riquadro */
+    .message-box {
+      margin-top: 20px;
+      background-color: #fce4ec;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: left;
       line-height: 1.6;
       color: #444;
-      margin-top: 20px;
+    }
+    .message-box strong {
+      font-weight: 700;
+      color: #d81b60;
     }
 
+    /* Media Query per dispositivi mobili */
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 15px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      button {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+      }
+      .gallery img {
+        max-height: 300px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -125,7 +155,7 @@
           Il tuo browser non supporta l'elemento audio.
         </audio>
       </div>
-      <div class="audio-container" style="margin-top: 15px;">
+      <div class="audio-container">
         <div class="audio-title">Virginia</div>
         <audio controls>
           <source src="Virginia.m4a" type="audio/mp4" />
@@ -135,9 +165,10 @@
     </div>
 
     <!-- Testo finale -->
-    <div class="message">
-      ciao mamma. <strong>ti vogliamo bene</strong>, da Paolo e Virginia.
+    <div class="message-box">
+      Ciao mamma. <strong>ti vogliamo bene</strong>, da Paolo e Virginia.
     </div>
+
   </div>
 
   <script>
@@ -152,8 +183,7 @@
       "IMG_7631.PNG",
       "IMG_7630.PNG",
       "IMG_7629.PNG"
-      // Aggiungi altre se necessario, 
-      // assicurati che i file esistano nella stessa cartella!
+      // Aggiungi/rimuovi se necessario
     ];
 
     let currentIndex = 0;
