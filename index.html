@@ -61,7 +61,7 @@
       object-fit: cover;
       border-radius: 8px;
     }
-    /* Pulsanti galleria */
+
     .gallery-controls {
       margin-top: 10px;
     }
@@ -80,7 +80,7 @@
       background: #c2185b;
     }
 
-    /* Audio */
+    /* Sezione audio */
     .audio-section {
       margin-bottom: 20px;
     }
@@ -89,10 +89,15 @@
       margin: 10px 0 5px;
       color: #ad1457; 
     }
+
+    /* Stile audio personalizzato */
     audio {
-      outline: none;
-      width: 100%;
+      width: 280px;        /* dimensione di default un po' ridotta */
+      max-width: 100%;     /* su dispositivi stretti non sfora */
       margin-bottom: 10px;
+      outline: none;
+      border-radius: 5px;  /* leggero rounding se supportato */
+      background-color: #fce4ec; /* su alcuni browser potrebbe non apparire */
     }
 
     /* Testo finale con riquadro */
@@ -127,6 +132,9 @@
       }
       .gallery img {
         max-height: 300px;
+      }
+      audio {
+        width: 220px; /* ancor più piccolo su mobile */
       }
     }
   </style>
@@ -183,13 +191,11 @@
       "IMG_7631.PNG",
       "IMG_7630.PNG",
       "IMG_7629.PNG"
-      // Aggiungi/rimuovi se necessario
     ];
 
     let currentIndex = 0;
     const galleryImage = document.getElementById('galleryImage');
 
-    // Mostra la prima immagine all'avvio
     window.addEventListener('DOMContentLoaded', () => {
       if (images.length > 0) {
         galleryImage.src = images[currentIndex];
